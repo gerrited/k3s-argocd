@@ -22,9 +22,10 @@ argocd app create k3s-argocd --repo https://github.com/gerrited/k3s-cluster.git 
 ```
 
 ## Use sealed secrets
-Add new 
+Add new argocd app
 
-REPO URL: https://bitnami-labs.github.io/sealed-secrets
-CHART: sealed-secrets
-VERSION: 2.2.0 (This is a pre-release at the time of writing this guide)
-NAMESPACE: kube-system
+```
+kubectl apply -f sealed-secrets.yaml
+```
+
+Don't forget to restore the old sealed-secrets-key
