@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnet-webapi
+  labels:
+    app: dotnet-webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnet-webapi
+  template:
+    metadata:
+      labels:
+        app: dotnet-webapi
+    spec:
+      containers:
+      - name: dotnet-webapi
+        image: fordperfect/dotnet-webapi:latest
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+            memory: "128Mi"
+          requests:
+            cpu: 200m
+            memory: "64Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: dotnet-webapi
+spec:
+  selector:
+    app: dotnet-webapi
+  ports:
+    - protocol: TCP
+      port: 80
