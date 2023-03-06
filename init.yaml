@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: k3s-cluster
+  namespace: argocd
+spec:
+  project: default
+  source:
+    directory:
+      jsonnet: {}
+      recurse: true
+    path: .
+    repoURL: https://github.com/gerrited/k3s-cluster.git
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: default

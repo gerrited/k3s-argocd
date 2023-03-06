@@ -8,6 +8,12 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ```
 
 ## Add this repo as argocd app
+### Option A
+```
+kubectl apply -f init.yaml
+```
+
+### Option B
 ```
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
 kubectl port-forward svc/argocd-server -n argocd 8080:80
@@ -16,9 +22,9 @@ argocd app create k3s-argocd --repo https://github.com/gerrited/k3s-argocd.git -
 ```
 
 ## Use sealed secrets
+Add new 
 
 REPO URL: https://bitnami-labs.github.io/sealed-secrets
 CHART: sealed-secrets
 VERSION: 2.2.0 (This is a pre-release at the time of writing this guide)
 NAMESPACE: kube-system
-
