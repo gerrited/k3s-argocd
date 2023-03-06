@@ -9,7 +9,7 @@ spec:
     directory:
       jsonnet: {}
       recurse: true
-    path: .
+    path: manifests
     repoURL: https://github.com/gerrited/k3s-cluster.git
   destination:
     server: "https://kubernetes.default.svc"
