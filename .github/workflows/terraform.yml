@@ -57,8 +57,6 @@ jobs:
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
-    env:
-      TF_VAR_cloudflare_zone: ${{ secrets.TF_CLOUDFLARE_ZONE }}
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -87,8 +85,6 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      env:
-        TF_VAR_cloudflare_zone: "g11s.cc"
       run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
