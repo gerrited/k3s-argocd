@@ -48,7 +48,7 @@ resource "cloudflare_tunnel_config" "auto_tunnel" {
     }
     ingress_rule {
       hostname = cloudflare_record.faas.hostname
-      service  = "http://gateway.openfaas.svc.cluster.local:80"
+      service  = "http://gateway.openfaas.svc.cluster.local:8080"
     }
     ingress_rule {
       hostname = cloudflare_record.argocd.hostname
