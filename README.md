@@ -29,3 +29,6 @@ kubectl apply -f sealed-secrets.yaml
 ```
 
 Don't forget to restore the old sealed-secrets-key
+
+## Terraform
+The cloudflare configuration of DNS records and tunnels are made with terraform. To make the process even easier, the github action uses the terraform cloud, to plan and apply changes. All necessary variables (e.g. tunnel id) are stored as secrets in the terraform cloud project.
