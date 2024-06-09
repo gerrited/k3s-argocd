@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: daily-workout-deployment
+  name: daily-workout
   labels:
     app: daily-workout
 spec:
