@@ -13,7 +13,7 @@ spec:
             image: ghcr.io/gerrited/workout-generator:latest
             volumeMounts:
             - name: workout-volume
-              mountPath: "/app/data"
+              mountPath: "/usr/src/app/data"
           restartPolicy: OnFailure
           volumes:
           - name: workout-volume
