@@ -9,7 +9,7 @@
 | [Terraform](https://argoproj.github.io/) | IaC Tool used to manage Cloudflare DNS and Tunnels |
 
 ## Infrastructure as Code
-The cloudflare configuration of DNS records and tunnels are made with terraform. To make the process even easier, the github action uses the terraform cloud to plan and apply changes. All necessary variables (e.g. tunnel id) are stored as secrets in the terraform cloud project.
+The cloudflare configuration of DNS records and tunnels are made with terraform. To make the process even easier, a github action uses the terraform cloud to plan and apply changes. All necessary variables (e.g. tunnel id) are stored as secrets in the terraform cloud project.
 
 ## How to create the cluster
 
