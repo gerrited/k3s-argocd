@@ -22,3 +22,10 @@ spec:
         env:
         - name: NODE_ENV
           value: "production"
+        volumeMounts:
+        - mountPath: "/app/data"
+          name: workout-volume
+      volumes:
+      - name: workout-volume
+        persistentVolumeClaim:
+          claimName: workout-pvc
