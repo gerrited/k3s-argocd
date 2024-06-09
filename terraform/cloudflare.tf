@@ -64,7 +64,7 @@ resource "cloudflare_tunnel_config" "auto_tunnel" {
     }
     ingress_rule {
       hostname = cloudflare_record.daily-workout.hostname
-      service  = "http://daily-workout-service:80"
+      service  = "http://daily-workout:80"
     }
     ingress_rule {
       service = "http_status:404"
