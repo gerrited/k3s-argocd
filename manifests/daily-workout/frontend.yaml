@@ -29,3 +29,17 @@ spec:
       - name: workout-volume
         persistentVolumeClaim:
           claimName: workout-pvc
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: daily-workout
+spec:
+  selector:
+    app: daily-workout
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
