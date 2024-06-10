@@ -14,14 +14,14 @@ spec:
             volumeMounts:
             - name: workout-volume
               mountPath: "/usr/src/app/data"
+            env:
+            - name: OPENAI_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: daily-workout
+                  key: OPENAI_API_KEY
           restartPolicy: OnFailure
           volumes:
           - name: workout-volume
             persistentVolumeClaim:
               claimName: workout-pvc
-        env:
-        - name: OPENAI_API_KEY
-          valueFrom:
-            secretKeyRef:
-              name: daily-workout
-              key: OPENAI_API_KEY
