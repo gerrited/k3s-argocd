@@ -19,3 +19,9 @@ spec:
           - name: workout-volume
             persistentVolumeClaim:
               claimName: workout-pvc
+        env:
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: daily-workout
+              key: OPENAI_API_KEY
