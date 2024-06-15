@@ -20,6 +20,21 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
+### Fix TLS
+Add insecure tls to the config map. This enables the use of Cloudflare tunnels.
+
+````
+apiVersion: v1
+data:
+  server.insecure: "true"
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/name: argocd-cmd-params-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-cmd-params-cm
+````
+
 ### Add this repo as argocd app
 Option A
 ```bash
