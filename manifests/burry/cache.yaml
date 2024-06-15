@@ -17,6 +17,7 @@ spec:
         image: redis:alpine
         ports:
         - containerPort: 6379
+      
 
 ---
 

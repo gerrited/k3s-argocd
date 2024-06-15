@@ -17,6 +17,9 @@ spec:
         image: ghcr.io/gerrited/burry:latest
         ports:
         - containerPort: 8080
+        env:
+          - name: REDIS_ADDR
+            value: "burry-cache:6379"
 
 ---
 
