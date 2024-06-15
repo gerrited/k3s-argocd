@@ -29,6 +29,14 @@ resource "cloudflare_record" "daily-workout" {
   proxied = true
 }
 
+resource "cloudflare_record" "burry" {
+  zone_id = var.cloudflare_zone_id
+  name    = "l"
+  value   = "${var.cloudflare_tunnel_id}.cfargotunnel.com"
+  type    = "CNAME"
+  proxied = true
+}
+
 resource "cloudflare_record" "faas" {
   zone_id = var.cloudflare_zone_id
   name    = "faas"
@@ -65,6 +73,10 @@ resource "cloudflare_tunnel_config" "auto_tunnel" {
     ingress_rule {
       hostname = cloudflare_record.daily-workout.hostname
       service  = "http://daily-workout:80"
+    }
+    ingress_rule {
+      hostname = cloudflare_record.burry.hostname
+      service  = "http://burry:80"
     }
     ingress_rule {
       service = "http_status:404"
